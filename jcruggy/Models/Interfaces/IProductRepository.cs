@@ -2,5 +2,9 @@
 {
     public interface IProductRepository
     {
+        IEnumerable<product> GetAllProducts();
+
+        IEnumerable<product> GetTrendProducts();
+        product GetProductDetail(int id);
     }
 }
