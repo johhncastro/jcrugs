@@ -1,12 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using jcruggy.Models
+@model IEnumerable<product>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>JC$ Rugs</title>
 </head>
 <body>
+    <h1>JC$ Rugs</h1>
+    @foreach (var item in Model)
+    {
+        <img src="@item.ImgUrl" height="100" width="100" />
+        <h3>@item.Name</h3>
+        <p>@item.Price.ToString("c")</p>
+    }
 
-    <h1>test</h1>
-    <p>hello world</p>
-
+    
 </body>
 </html> 
