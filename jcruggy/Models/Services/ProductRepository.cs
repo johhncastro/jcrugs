@@ -1,29 +1,29 @@
-﻿using jcruggy.Models.Interfaces;
+﻿using jcruggy.Data;
+using jcruggy.Models.Interfaces;
 
 namespace jcruggy.Models.Services
 {
     public class ProductRepository : IProductRepository
     {
-        private List<product> productsList = new List<product>() 
-        { 
-            new product{Id = 1 , Name = "Jolly Roger", Price = 200, Detail = "3.5ft x 3.5ft Tufted rug. This rug is the jolly roger from the straw hat pirates from the hit show One Piece.", ImgUrl = "https://i.imgur.com/x5WMb4e.png"},
-            new product{Id = 2 , Name = "UZI RUG", Price = 250, Detail = "3.5ft x 3.5ft Tufted rug. This rug is taken from inpiration from lil uzi eternal atake album", ImgUrl = "https://i.imgur.com/x5WMb4e.png"},
-            new product{Id = 3 , Name = "UNDERTALE", Price = 150, Detail = "3.5ft x 3.5ft Tufted rug. This rug is from the video game undertale and features the main character", ImgUrl = "https://i.imgur.com/x5WMb4e.png"}
+        private jcruggyDbContext dbContext;
 
-        };
-        public IEnumerable<product> GetAllProducts()
+        public ProductRepository(jcruggyDbContext dbContext) 
+        { 
+            this.dbContext = dbContext;
+        }
+        public IEnumerable<Product> GetAllProducts()
         {
-            return productsList;
+            return dbContext.Products;
         }
 
-        public product GetProductDetail(int id)
+        public Product GetProductDetail(int id)
         {
             return productsList.FirstOrDefault(p => p.Id == id);
         }
 
-        public IEnumerable<product> GetTrendProducts()
+        public IEnumerable<Product> GetTrendProducts()
         {
-            return productsList.Where(p=>p.IsTredingProduct);
+            return dbContext.Products.Where(p => p.IsTrendingProduct);
         }
     }
 }

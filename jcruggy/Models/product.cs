@@ -1,6 +1,6 @@
 ﻿namespace jcruggy.Models
 {
-    public class product
+    public class Product
     {
         public int Id { get; set; }
 
