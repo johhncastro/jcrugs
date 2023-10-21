@@ -16,9 +16,9 @@ namespace jcruggy.Models.Services
             return dbContext.Products;
         }
 
-        public Product GetProductDetail(int id)
+        public Product? GetProductDetail(int id)
         {
-            return productsList.FirstOrDefault(p => p.Id == id);
+            return dbContext.Products.FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Product> GetTrendProducts()

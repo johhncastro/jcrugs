@@ -1,11 +1,15 @@
+using jcruggy.Data;
 using jcruggy.Models.Interfaces;
 using jcruggy.Models.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddDbContext<jcruggyDbContext>(option=>option.UseSqlServer(builder.Configuration.GetConnectionString("jcrugDbContextConnection")));
 
 var app = builder.Build();
 

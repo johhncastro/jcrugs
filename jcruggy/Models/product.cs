@@ -12,6 +12,6 @@
 
         public decimal Price { get; set; }
 
-        public bool IsTredingProduct { get; internal set; }
+        public bool IsTrendingProduct { get; internal set; }
     }
 }
