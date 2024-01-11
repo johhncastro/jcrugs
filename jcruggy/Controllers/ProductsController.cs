@@ -18,7 +18,12 @@ namespace jcruggy.Controllers
 
         public IActionResult Detail(int id) 
         {
-            return View(productRepository.GetProductDetail(id));
+            var product = productRepository.GetProductDetail(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);   
         }
     }
 }

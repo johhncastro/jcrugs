@@ -1,14 +1,7 @@
 ﻿@model jcruggy.Models.Product
-
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>$jcrugs</title>
-</head>
-<body>
-
+@{
+    Layout = "_Layout";
+}
     <img src="@Model.ImgUrl"/>
     <h3>@Model.Name</h3>
     <p>@Model.Detail</p>
@@ -16,7 +9,3 @@
 
 
 
-
-
-</body>
-</html>

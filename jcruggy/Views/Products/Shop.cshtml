@@ -1,20 +1,16 @@
 ﻿@using jcruggy.Models
 @model IEnumerable<Product>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JC$ Rugs</title>
-</head>
-<body>
     <h1>JC$ Rugs</h1>
     @foreach (var item in Model)
     {
         <img src="@item.ImgUrl" height="100" width="100" />
-        <h3>@item.Name</h3>
+        <a asp-controller="Products" asp-action="Detail" asp-route-id="@item.Id"><h3>@item.Name</h3></a>
         <p>@item.Price.ToString("c")</p>
     }
 
-    
-</body>
-</html> 
+ 
