@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using jcruggy.Data;
 
@@ -10,9 +11,11 @@ using jcruggy.Data;
 namespace jcruggy.Migrations
 {
     [DbContext(typeof(jcruggyDbContext))]
-    partial class jcruggyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240111024837_SeedProductsTable")]
+    partial class SeedProductsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
